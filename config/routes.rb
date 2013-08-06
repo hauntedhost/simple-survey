@@ -1,5 +1,7 @@
 SurveyApp::Application.routes.draw do
 
+  root :to => "surveys#index"
+
   resources :surveys, :only => [:index, :show]
   resources :survey_submissions, :only => [:create]
 
