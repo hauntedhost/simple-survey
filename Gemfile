@@ -18,5 +18,7 @@ group :production do
   gem 'pg'
 end
 
+gem 'acts_as_list'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'thin'

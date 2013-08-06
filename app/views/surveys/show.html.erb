@@ -1,8 +1,11 @@
 <span>
-  <%= link_to "Surveys", surveys_url  %> > <%= @survey.name %>
+  <%= link_to "Surveys", surveys_url  %> > <%= @survey.name %> 
+  (<%= link_to "edit", edit_survey_url(@survey) %>)
 </span>
 
 <form action="<%= survey_submissions_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+
   <h2><%= @survey.name %></h2>
 
   <p>
@@ -26,6 +29,5 @@
     </p>
   <% end %>
 
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
   <input type="submit" value="Save Survey" />
 </form>

@@ -49,3 +49,16 @@ input[type="submit"]:hover {
   background: #525252;
   cursor: pointer;
 }
+
+ul.questions {
+  padding: 10px;
+}
+
+li.question {
+  list-style-type: circle;
+  margin: 3px 0;
+}
+
+li.question:hover {
+  cursor: move;
+}

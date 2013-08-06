@@ -1,0 +1,78 @@
+<span>
+  <%= link_to "Surveys", surveys_url  %> > 
+  <%= link_to @survey.name, survey_url(@survey) %> > Edit
+</span>
+
+<p></p>
+
+<form action="<%= survey_url(@survey) %>" method="post">
+  <input type="hidden" name="_method" value="put" />
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+
+  <h3>Survey:</h3>
+
+  <label for="survey_name">Name:</label>
+  <input type="text" name="survey[name]" value="<%= @survey.name %>" />
+
+  <h3>Questions:</h3>
+  <ul class="questions">
+  <% @survey.questions.each do |question| %>
+    <li class="question">
+      <input type="hidden"
+             name="survey[questions_attributes][<%= question.id %>][id]"
+             value="<%= question.id %>" />
+      <input type="hidden"
+             name="survey[questions_attributes][<%= question.id %>][position]"
+             value="<%= question.position %>" />
+      <input type="text"
+             id="question_<%= question.id %>" 
+             name="survey[questions_attributes][<%= question.id %>][label]"
+             value="<%= question.label %>"
+             />
+    </li>
+  <% end %>
+  </ul>
+
+  <input type="submit" value="Save Survey" />
+</form>
+
+<script type="text/javascript">
+$(function () {
+  $('.questions').sortable({
+    axis: 'y',
+
+    start: function (e, ui) {
+      ui.placeholder.width(ui.item.width());
+      ui.placeholder.height(ui.item.height());
+    },    
+
+    update: function (date) {
+      items: "p.question",
+      sortData = $(this).sortable("serialize");
+      console.log(sortData);
+    },
+
+    sort: function (event, ui) {
+      var that = $(this),
+      w = ui.helper.outerHeight();
+      that.children().each(function () {
+        if ($(this).hasClass('ui-sortable-helper') || 
+          $(this).hasClass('ui-sortable-placeholder')) {
+          return true;          
+        }
+        // if overlap is more than half of the dragged item
+        var dist = Math.abs(ui.position.left - $(this).position().top),
+        before = ui.position.left > $(this).position().top;
+        if ((w - dist) > (w / 2) && (dist < w)) {
+          if (before) {
+            $('.ui-sortable-placeholder', that).insertBefore($(this));            
+          } else {
+            $('.ui-sortable-placeholder', that).insertAfter($(this));            
+          }
+          return false;
+        }
+      });
+    }
+  });
+});
+</script>
