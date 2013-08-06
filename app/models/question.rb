@@ -12,6 +12,7 @@
 
 class Question < ActiveRecord::Base
   attr_accessible :label, :position, :survey_id
+  default_scope order("position")
 
   belongs_to :survey
 

@@ -11,3 +11,41 @@
  *= require_self
  *= require_tree .
  */
+
+.content {
+  width: 400px;
+  margin: 0 auto;
+  padding: 25px;
+  border: 1px solid #cfcfcf;
+}
+
+h2, p, li, span {
+  /*text-transform: capitalize;*/
+}
+
+label {
+  display: block;
+}
+
+input {
+  padding: 4px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  width: 100%;
+  border: 1px solid #a0a0a0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  padding: 10px;
+  background: black;
+  color: white;
+}
+
+input[type="submit"]:hover {
+  background: #525252;
+  cursor: pointer;
+}

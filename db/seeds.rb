@@ -13,19 +13,19 @@ users = User.create([
   ])
 
 surveys = Survey.create([
-  { name: "how can we improve?"},
-  { name: "cat facts"}
+  { name: "How can we improve?"},
+  { name: "Cat facts"}
   ])
 
 questions = Question.create([
-  { label: "how many printers do you have at home?", survey_id: 1, position: 1 },
-  { label: "how often do you print?", survey_id: 1, position: 2 },
-  { label: "are you able to print from your mobile device now?", survey_id: 1, position: 3 },
-  { label: "what kind of documents do you print?", survey_id: 1, position: 4 },
+  { label: "How many printers do you have at home?", survey_id: 1, position: 1 },
+  { label: "How often do you print?", survey_id: 1, position: 2 },
+  { label: "Are you able to print from your mobile device now?", survey_id: 1, position: 3 },
+  { label: "What kind of documents do you print?", survey_id: 1, position: 4 },
 
-  { label: "which famous cat loves lasagna?", survey_id: 2, position: 1 },
-  { label: "what is 'grumpy cats' real name?", survey_id: 2, position: 2 },
-  { label: "who was heathcliff's nemesis?", survey_id: 2, position: 3 },
+  { label: "Which famous cat loves lasagna?", survey_id: 2, position: 1 },
+  { label: "What is the real name of 'Grumpy Cat'?", survey_id: 2, position: 2 },
+  { label: "Who was Heathcliff's nemesis?", survey_id: 2, position: 3 },
   ])
 
 responses = QuestionResponse.create([

@@ -9,7 +9,7 @@
 #
 
 class Survey < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :questions_attributes
 
   has_many :questions
   has_many :user_responses, :through => :questions

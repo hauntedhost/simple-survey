@@ -10,15 +10,17 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :ip_address
+  attr_accessible :email, :ip_address, :responses_attributes
 
-  has_many :questions_answered, 
+  has_many :responses, 
     :class_name => "QuestionResponse",
     :foreign_key => :user_id
 
   has_many :surveys_completed,
-    :through => :questions_answered, 
+    :through => :responses, 
     :source => :survey,
     :uniq => true
+
+  accepts_nested_attributes_for :responses
 
 end

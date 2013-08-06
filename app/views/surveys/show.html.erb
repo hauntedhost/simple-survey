@@ -1,0 +1,31 @@
+<span>
+  <%= link_to "Surveys", surveys_url  %> > <%= @survey.name %>
+</span>
+
+<form action="<%= survey_submissions_url %>" method="post">
+  <h2><%= @survey.name %></h2>
+
+  <p>
+    <label for="email">Email address:</label>
+    <input type="text" id="email" name="user[email]" />
+  </p>
+
+  <h3>Survey Questions:</h3>
+  <% @survey.questions.each do |question| %>
+    <p class="question">
+      <label for="question_<%= question.id %>">
+        <%= question.label %>
+      </label>
+      <input type="hidden" 
+             name="user[responses_attributes][<%= question.id %>][question_id]"
+             value="<%= question.id %>" />
+      <input type="text"
+             id="question_<%= question.id %>" 
+             name="user[responses_attributes][<%= question.id %>][response]"
+             />
+    </p>
+  <% end %>
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+  <input type="submit" value="Save Survey" />
+</form>
