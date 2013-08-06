@@ -5,3 +5,50 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+users = User.create([
+  { email: "abc@email.com" },
+  { email: "123@email.com" },
+  { email: "777@email.com" }
+  ])
+
+surveys = Survey.create([
+  { name: "how can we improve?"},
+  { name: "cat facts"}
+  ])
+
+questions = Question.create([
+  { label: "how many printers do you have at home?", survey_id: 1, position: 1 },
+  { label: "how often do you print?", survey_id: 1, position: 2 },
+  { label: "are you able to print from your mobile device now?", survey_id: 1, position: 3 },
+  { label: "what kind of documents do you print?", survey_id: 1, position: 4 },
+
+  { label: "which famous cat loves lasagna?", survey_id: 2, position: 1 },
+  { label: "what is 'grumpy cats' real name?", survey_id: 2, position: 2 },
+  { label: "who was heathcliff's nemesis?", survey_id: 2, position: 3 },
+  ])
+
+responses = QuestionResponse.create([
+  { user_id: 1, question_id: 1, response: "0" },
+  { user_id: 1, question_id: 2, response: "a few times a year" },
+  { user_id: 1, question_id: 3, response: "don't think so no" },
+  { user_id: 1, question_id: 4, response: "legal documents" },
+
+  { user_id: 2, question_id: 1, response: "2" },
+  { user_id: 2, question_id: 2, response: "every day!" },
+  { user_id: 2, question_id: 3, response: "i wish i could" },
+  { user_id: 2, question_id: 4, response: "client specs" },
+
+  { user_id: 3, question_id: 1, response: "1" },
+  { user_id: 3, question_id: 2, response: "several times per week" },
+  { user_id: 3, question_id: 3, response: "yes but it's a hack, want something easier" },
+  { user_id: 3, question_id: 4, response: "flyers" },
+
+  { user_id: 1, question_id: 5, response: "garfield" },
+  { user_id: 1, question_id: 6, response: "tardar sauce" },
+  { user_id: 1, question_id: 7, response: "spike the dog" },
+
+  { user_id: 2, question_id: 5, response: "garfield of course!" },
+  { user_id: 2, question_id: 6, response: "oh man i love grumpy cat but no clue" },
+  { user_id: 2, question_id: 7, response: "who is heathcliff?" }
+  ])
